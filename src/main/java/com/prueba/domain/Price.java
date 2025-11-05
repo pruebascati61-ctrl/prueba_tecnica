@@ -1,13 +1,11 @@
 package com.prueba.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 public class Price {
     private Integer brandId;
     private LocalDateTime startDate;

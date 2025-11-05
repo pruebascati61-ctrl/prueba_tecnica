@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 public class PriceEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer brandId;
     private LocalDateTime startDate;

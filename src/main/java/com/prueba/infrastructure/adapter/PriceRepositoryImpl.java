@@ -1,5 +1,6 @@
 package com.prueba.infrastructure.adapter;
 
+import com.prueba.application.dto.PriceDTO;
 import com.prueba.application.repository.PriceRepository;
 import com.prueba.domain.Price;
 import com.prueba.infrastructure.mapper.PriceMapper;
@@ -24,9 +25,9 @@ public class PriceRepositoryImpl implements PriceRepository {
     }
 
     @Override
-    public List<Price> findByPriceDTO(LocalDateTime dateApplication, String productId, String brandId) {
+    public List<PriceDTO> findByPriceDTO(LocalDateTime dateApplication, Integer productId, Integer brandId) {
 
-        return priceMapper.toPriceEntities(priceCrudRepository.findByPriceDTO(dateApplication, productId, brandId));
+        return priceCrudRepository.findByPriceDTO(dateApplication, productId, brandId);
     }
 
 }

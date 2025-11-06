@@ -2,13 +2,12 @@ package com.prueba.infrastructure.controller;
 
 import com.prueba.application.service.PriceService;
 import com.prueba.domain.Price;
+import com.prueba.infrastructure.adapter.output.PriceResponse;
+import com.prueba.infrastructure.mapper.PriceMapper;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +19,11 @@ import java.util.List;
 @Slf4j
 public class PriceController {
     private final PriceService priceService;
-
-    public PriceController(PriceService priceService) {
+    private final PriceMapper priceMapper;
+    public PriceController(PriceService priceService, PriceMapper priceMapper)
+    {
         this.priceService = priceService;
+        this.priceMapper = priceMapper;
     }
 
 
@@ -35,10 +36,11 @@ public class PriceController {
     }
 
     @GetMapping("/show/price")
-    public ResponseEntity<Price> getPrices(LocalDateTime fecha, String idProducto, String idCadena)
+    public ResponseEntity<List<PriceResponse>> getPrices(LocalDateTime fecha, Integer idProducto, Integer idCadena)
     {
-        List<Price> prices = priceService.getPrices(fecha, idProducto, idCadena);
-        return new ResponseEntity<>(HttpStatus.OK);
+        List<Price> prices = priceMapper.toPrices(priceService.getPrices(fecha, idProducto, idCadena));
+        List<PriceResponse> response = priceMapper.toPriceResponse(prices);
+        return ResponseEntity.ok().body(response);
     }
 
 

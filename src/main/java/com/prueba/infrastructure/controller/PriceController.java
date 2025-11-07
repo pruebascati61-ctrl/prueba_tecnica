@@ -1,5 +1,6 @@
 package com.prueba.infrastructure.controller;
 
+import com.prueba.application.dto.PriceDTO;
 import com.prueba.application.service.PriceService;
 import com.prueba.domain.Price;
 import com.prueba.infrastructure.adapter.output.PriceResponse;
@@ -36,10 +37,9 @@ public class PriceController {
     }
 
     @GetMapping("/show/price")
-    public ResponseEntity<List<PriceResponse>> getPrices(LocalDateTime fecha, Integer idProducto, Integer idCadena)
+    public ResponseEntity<List<PriceDTO>> getPrices(LocalDateTime fecha, Integer idProducto, Integer idCadena)
     {
-        List<Price> prices = priceMapper.toPrices(priceService.getPrices(fecha, idProducto, idCadena));
-        List<PriceResponse> response = priceMapper.toPriceResponse(prices);
+        List<PriceDTO> response = priceService.getPrices(fecha, idProducto, idCadena);
         return ResponseEntity.ok().body(response);
     }
 

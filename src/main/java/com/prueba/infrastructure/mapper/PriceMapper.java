@@ -33,6 +33,7 @@ public interface PriceMapper {
     List<Price> toPriceEntities (List<PriceEntity> priceEntities);
     List<Price> toPrices (List<PriceDTO> priceDTO);
     List<PriceResponse> toPriceResponse (List<Price> prices);
+    List<PriceDTO> toPriceDTO (List<Price> price);
     @InheritInverseConfiguration
     PriceEntity toPriceEntity (Price price);
 

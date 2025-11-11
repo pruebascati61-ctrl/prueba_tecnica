@@ -59,9 +59,9 @@ public class PriceServiceTest {
         var result = service.getPrices(fechaPeticion, productId, brandId);
 
 
-        assertEquals(DataMock.PRICE_1_DTO.price(), result.get(0).price());
-        assertEquals(DataMock.PRICE_1_DTO.productId(), result.get(0).productId());
-        assertEquals(DataMock.PRICE_1_DTO.brandId(), result.get(0).brandId());
+        assertEquals(DataMock.PRICE_2_DTO.price(), result.get(0).price());
+        assertEquals(DataMock.PRICE_2_DTO.productId(), result.get(0).productId());
+        assertEquals(DataMock.PRICE_2_DTO.brandId(), result.get(0).brandId());
     }
 
     //Test 3: petición a las 21:00 del día 14 del producto 35455 para la brand 1
@@ -77,9 +77,9 @@ public class PriceServiceTest {
 
         var result = service.getPrices(fechaPeticion, productId, brandId);
 
-        assertEquals(DataMock.PRICE_1_DTO.price(), result.get(0).price());
-        assertEquals(DataMock.PRICE_1_DTO.productId(), result.get(0).productId());
-        assertEquals(DataMock.PRICE_1_DTO.brandId(), result.get(0).brandId());
+        assertEquals(DataMock.PRICE_3_DTO.price(), result.get(0).price());
+        assertEquals(DataMock.PRICE_3_DTO.productId(), result.get(0).productId());
+        assertEquals(DataMock.PRICE_3_DTO.brandId(), result.get(0).brandId());
     }
 
     //Test 4: petición a las 10:00 del día 15 del producto 35455 para la brand 1
@@ -95,9 +95,9 @@ public class PriceServiceTest {
 
         var result = service.getPrices(fechaPeticion, productId, brandId);
 
-        assertEquals(DataMock.PRICE_1_DTO.price(), result.get(0).price());
-        assertEquals(DataMock.PRICE_1_DTO.productId(), result.get(0).productId());
-        assertEquals(DataMock.PRICE_1_DTO.brandId(), result.get(0).brandId());
+        assertEquals(DataMock.PRICE_4_DTO.price(), result.get(0).price());
+        assertEquals(DataMock.PRICE_4_DTO.productId(), result.get(0).productId());
+        assertEquals(DataMock.PRICE_4_DTO.brandId(), result.get(0).brandId());
     }
 
     //Test 5: petición a las 16:00 del día 15 del producto 35455 para la brand 1
@@ -113,9 +113,9 @@ public class PriceServiceTest {
 
         var result = service.getPrices(fechaPeticion, productId, brandId);
 
-        assertEquals(DataMock.PRICE_1_DTO.price(), result.get(0).price());
-        assertEquals(DataMock.PRICE_1_DTO.productId(), result.get(0).productId());
-        assertEquals(DataMock.PRICE_1_DTO.brandId(), result.get(0).brandId());
+        assertEquals(DataMock.PRICE_5_DTO.price(), result.get(0).price());
+        assertEquals(DataMock.PRICE_5_DTO.productId(), result.get(0).productId());
+        assertEquals(DataMock.PRICE_5_DTO.brandId(), result.get(0).brandId());
     }
 }
 
